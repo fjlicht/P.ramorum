@@ -4,10 +4,15 @@ title: SnpEff
 date: 2017-09-01
 ---
 
-#Download SNPeff wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
+##Download SNPeff:
+
+wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
+======
+
 java -jar snpEff.jar databases | grep -i phytophthora
 
 java -Xmx4g -jar snpEff.jar Phytophthora_ramorum /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Isolates/Bam/multivariants8.vcf > multivariants8.ann.vcf
+
 ##should use filtered example
 java -Xmx4g -jar snpEff.jar Phytophthora_ramorum /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Isolates/Bam/multivariants8_filtered.vcf > multivariants8_filt.ann.vcf
 
