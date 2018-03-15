@@ -4,7 +4,7 @@ author: "Franz Lichtner"
 date: "3/15/2018"
 output: html_document
 ---
-# Using Bowtie 2 to call SNPs
+# Using Bowtie2 to call SNPs
 
 ## Start Pramorum project
 ### Build index with Bowtie2
@@ -30,3 +30,5 @@ bowtie2 -x /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Ref/bowtie2/pramorum1 -1 /U
 ```
 samtools view -bS file.sam | samtools sort - file_sorted
 ```
+
+##
