@@ -5,8 +5,9 @@ date: "3/15/2018"
 output: html_document
 ---
 # Using Bowtie2 to call SNPs
+### *P.ramorum* is an oomycete that causes cankers and death to woody shrubs and trees, here I begin performing comparative genomics of the 10 isolates we have sequenced.
 
-## Start Pramorum project
+## Begin Pramorum project again.
 ### Build index with Bowtie2
 
 ```
@@ -562,4 +563,18 @@ tabix -p vcf multivariants8_filtered.vcf.gz
 grep -v "#" multivariants8.vcf.gz | awk '{print $NF}' | awk -F ":" '{print $1}' | awk -F "/" '$1==$2 {print}'
 vcftools --gzvcf multivariants8.vcf.gz --extract-FORMAT-info GT | grep "0/1"
 ```
+## Authors
+
+* **Franz Lichtner** - *Initial work* - [fjlicht](https://github.com/fjlicht)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+
+## Acknowledgments
+
+* http://bowtie-bio.sourceforge.net/index.shtml
+* http://www.htslib.org
+* https://samtools.github.io/bcftools/bcftools.html
 
