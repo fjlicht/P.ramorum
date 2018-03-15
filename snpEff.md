@@ -17,7 +17,7 @@ wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
 java -jar snpEff.jar databases | grep -i phytophthora
 ```
 
-## Begin executing snpEff to create .csv files to manipulate in R for SNP visualization
+## Begin executing snpEff to eventually create .csv files to manipulate in R for SNP visualization
 ```
 java -Xmx4g -jar snpEff.jar Phytophthora_ramorum /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Isolates/Bam/multivariants8.vcf > multivariants8.ann.vcf
 ```
@@ -62,11 +62,6 @@ java -Xmx4g -jar snpEff.jar Phytophthora_ramorum /Users/Franz/Dropbox/P_ramorum/
 java -Xmx4g -jar snpEff.jar Phytophthora_ramorum /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Isolates/Bam/pram5_filtered.vcf.gz > pram5_filt.ann.vcf
 ```
 
-## *pram4_filtered.vcf.gz*
-```
-java -Xmx4g -jar snpEff.jar Phytophthora_ramorum -csvStats /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Isolates/Bam/pram4_filtered.vcf.gz >  pram4_filt.ann.vcf
-```
-
 ## *pram3_filtered.vcf.gz*
 ```
 java -Xmx4g -jar snpEff.jar Phytophthora_ramorum /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Isolates/Bam/pram3_filtered.vcf.gz > pram3_filt.ann.vcf
@@ -76,3 +71,20 @@ java -Xmx4g -jar snpEff.jar Phytophthora_ramorum /Users/Franz/Dropbox/P_ramorum/
 ```
 java -Xmx4g -jar snpEff.jar Phytophthora_ramorum /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Isolates/Bam/pram1_filtered.vcf.gz > pram1_filt.ann.vcf
 ```
+##  Here include -csvStats for output to be well curated and manipulatable .csv file *pram4_filtered.vcf.gz*
+```
+java -Xmx4g -jar snpEff.jar Phytophthora_ramorum -csvStats /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Isolates/Bam/pram4_filtered.vcf.gz >  pram4_filt.ann.vcf
+```
+## Authors
+
+* **Franz Lichtner** - *Initial work* - [fjlicht](https://github.com/fjlicht)
+
+
+## License
+
+
+## Acknowledgments
+
+* http://snpeff.sourceforge.net
+* Inspiration
+* etc
