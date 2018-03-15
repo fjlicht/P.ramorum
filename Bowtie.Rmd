@@ -4,32 +4,29 @@ author: "Franz Lichtner"
 date: "3/15/2018"
 output: html_document
 ---
+# Using Bowtie 2 to call SNPs
 
-```{r Starting out, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+## Start Pramorum project
+### Build index with Bowtie2
+
 ```
-
-##Start Pramorum project
-#build index with bowtie2
-
-```{r cars}
 bowtie2-build -f /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Ref/bowtie2/ramorum1.fasta pramorum1
 ```
 
-##Use bowtie2 to align corrected reads to reference scaffolds
-#download Bless corrected reads 1 and 2 for each isolate
+## Use bowtie2 to align corrected reads to reference scaffolds
+### Download 'Bless' corrected reads 1 and 2 for each isolate
 
-```{r Acquire reads, echo=FALSE}
+```
 scp *.fastq franzlichtner@129.82.36.76:/data/lichtner/pram/
 ```
 
-#Start with first isolate
-```{r Align reads, echo=FALSE}
+## Start with first isolate
+```
 bowtie2 -x /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Ref/bowtie2/pramorum1 -1 /Users/Franz/pram1bless23_corr.1.corrected.fastq -2 /Users/Franz/pram1bless23_corr.2.corrected.fastq
 ```
 
-#output from bowtie2 should be sam file
-#sort samfile
-```{r sorting, echo=FALSE}
+## Output from Bowtie2 should be .sam file
+### Sort samfile
+```
 samtools view -bS file.sam | samtools sort - file_sorted
 ```
