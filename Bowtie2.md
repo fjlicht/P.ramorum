@@ -20,7 +20,7 @@ bowtie2-build -f /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Ref/bowtie2/ramorum1.
 scp *.fastq franzlichtner@129.82.36.76:/data/lichtner/pram/
 ```
 
-## Start with first isolate
+## Start with first isolate *Pram1*
 ```
 bowtie2 -x /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Ref/bowtie2/pramorum1 -1 /Users/Franz/pram1bless23_corr.1.corrected.fastq -2 /Users/Franz/pram1bless23_corr.2.corrected.fastq
 ```
@@ -59,11 +59,16 @@ tabix -p vcf pram1.variants.vcf.gz
 ```
 
 27367381 reads; of these:
+
   27367381 (100.00%) were unpaired; of these:
-    2394600 (8.75%) aligned 0 times
-    15374889 (56.18%) aligned exactly 1 time
-    9597892 (35.07%) aligned >1 times
-91.25% overall alignment rate
+  
+  2394600 (8.75%) aligned 0 times
+    
+  15374889 (56.18%) aligned exactly 1 time
+  
+  9597892 (35.07%) aligned >1 times
+  
+*91.25% overall alignment rate*
 
 ```
 samtools view -bS pram3.sam > pram3.bam
@@ -81,7 +86,7 @@ bgzip pram3.variants.vcf
 tabix -p vcf pram3.variants.vcf.gz
 ```
 
-## Perform on "Pram4"
+## Perform on *Pram4*
 ### Execute in screen pram4
 #### Started 102617 3:38pm finished ~4:15pm
 
@@ -90,21 +95,31 @@ tabix -p vcf pram3.variants.vcf.gz
 ```
 
 ## Output
+
 23439941 reads; of these:
+
   23439941 (100.00%) were paired; of these:
-    2592817 (11.06%) aligned concordantly 0 times
-    13911421 (59.35%) aligned concordantly exactly 1 time
-    6935703 (29.59%) aligned concordantly >1 times
-    ----
-    2592817 pairs aligned concordantly 0 times; of these:
-      110260 (4.25%) aligned discordantly 1 time
-    ----
-    2482557 pairs aligned 0 times concordantly or discordantly; of these:
-      4965114 mates make up the pairs; of these:
-        4015887 (80.88%) aligned 0 times
-        413676 (8.33%) aligned exactly 1 time
-        535551 (10.79%) aligned >1 times
-91.43% overall alignment rate
+  
+  2592817 (11.06%) aligned concordantly 0 times
+  
+  13911421 (59.35%) aligned concordantly exactly 1 time
+  
+  6935703 (29.59%) aligned concordantly >1 times
+  
+  2592817 pairs aligned concordantly 0 times; of these:
+  110260 (4.25%) aligned discordantly 1 time
+  
+  2482557 pairs aligned 0 times concordantly or discordantly; of these:
+  
+  4965114 mates make up the pairs; of these:
+      
+  4015887 (80.88%) aligned 0 times
+  
+  413676 (8.33%) aligned exactly 1 time
+  
+  535551 (10.79%) aligned >1 times
+  
+*91.43% overall alignment rate*
 
 ## Bam file
 ```
@@ -119,19 +134,32 @@ samtools flagstat pram4.sorted.bam
 
 ```
 
-## MacBook-Pro:Bam Franz$ samtools flagstat pram4.sorted.bam
+## Results
+
 46879882 + 0 in total (QC-passed reads + QC-failed reads)
+
 0 + 0 secondary
+
 0 + 0 supplementary
+
 0 + 0 duplicates
+
 42863995 + 0 mapped (91.43% : N/A)
+
 46879882 + 0 paired in sequencing
+
 23439941 + 0 read1
+
 23439941 + 0 read2
+
 41694248 + 0 properly paired (88.94% : N/A)
+
 42307772 + 0 with itself and mate mapped
+
 556223 + 0 singletons (1.19% : N/A)
+
 399776 + 0 with mate mapped to a different chr
+
 192823 + 0 with mate mapped to a different chr (mapQ>=5)
 
 ```
@@ -156,7 +184,7 @@ bcftools filter -O z -o pram4_filtered.vcf.gz -s LOWQUAL -i'%QUAL>20' pram4.vari
 tabix -p vcf pram4_filtered.vcf.gz
 ```
 
-## Isolate "Pram5"
+## Isolate *Pram5*
 ### Execute in screen pram5
 #### Started 102617 4:20pm
 
@@ -167,20 +195,30 @@ screen -S pram5
 ## Results
 
 25200541 reads; of these:
-  25200541 (100.00%) were paired; of these:
-    3491063 (13.85%) aligned concordantly 0 times
-    14488673 (57.49%) aligned concordantly exactly 1 time
-    7220805 (28.65%) aligned concordantly >1 times
-    ----
-    3491063 pairs aligned concordantly 0 times; of these:
-      182303 (5.22%) aligned discordantly 1 time
-    ----
-    3308760 pairs aligned 0 times concordantly or discordantly; of these:
-      6617520 mates make up the pairs; of these:
-        5403811 (81.66%) aligned 0 times
-        520800 (7.87%) aligned exactly 1 time
-        692909 (10.47%) aligned >1 times
-89.28% overall alignment rate
+  
+25200541 (100.00%) were paired; of these:
+
+3491063 (13.85%) aligned concordantly 0 times
+
+14488673 (57.49%) aligned concordantly exactly 1 time
+ 
+7220805 (28.65%) aligned concordantly >1 times
+
+3491063 pairs aligned concordantly 0 times; of these:
+
+182303 (5.22%) aligned discordantly 1 time
+
+3308760 pairs aligned 0 times concordantly or discordantly; of these:
+
+6617520 mates make up the pairs; of these:
+
+5403811 (81.66%) aligned 0 times
+
+520800 (7.87%) aligned exactly 1 time
+
+692909 (10.47%) aligned >1 times
+
+*89.28% overall alignment rate*
 
 ## Move forward to bam and create variant call file using bcftools
 ```
@@ -195,7 +233,7 @@ tabix -p vcf pram5_filtered.vcf.gz
 
 ```
 
-## Isolate "Pram6"
+## Isolate *Pram6*
 ### execute in screen pram6 : Started 110217 1:36pm
 
 ```
@@ -203,21 +241,31 @@ screen -S pram6
 ./bowtie2 -p 8 -x /data/lichtner/pram/ref/pramorum1 -1 /data/lichtner/pram/pram6bless23_corr.1.corrected.fastq -2 /data/lichtner/pram/pram6bless23_corr.2.corrected.fastq -S /data/lichtner/pram/pram6.sam
 ```
 ## Results
+
 27877162 reads; of these:
-  27877162 (100.00%) were paired; of these:
-    4087853 (14.66%) aligned concordantly 0 times
-    15871737 (56.93%) aligned concordantly exactly 1 time
-    7917572 (28.40%) aligned concordantly >1 times
-    ----
-    4087853 pairs aligned concordantly 0 times; of these:
-      189182 (4.63%) aligned discordantly 1 time
-    ----
-    3898671 pairs aligned 0 times concordantly or discordantly; of these:
-      7797342 mates make up the pairs; of these:
-        6469544 (82.97%) aligned 0 times
-        575658 (7.38%) aligned exactly 1 time
-        752140 (9.65%) aligned >1 times
-88.40% overall alignment rate
+  
+27877162 (100.00%) were paired; of these:
+
+4087853 (14.66%) aligned concordantly 0 times
+15871737 (56.93%) aligned concordantly exactly 1 time
+
+7917572 (28.40%) aligned concordantly >1 times
+
+4087853 pairs aligned concordantly 0 times; of these:
+
+189182 (4.63%) aligned discordantly 1 time
+
+3898671 pairs aligned 0 times concordantly or discordantly; of these:
+
+7797342 mates make up the pairs; of these:
+
+6469544 (82.97%) aligned 0 times
+
+575658 (7.38%) aligned exactly 1 time
+
+752140 (9.65%) aligned >1 times
+
+*88.40% overall alignment rate*
 
 ## Move forward to .bam
 ```
@@ -241,7 +289,7 @@ bcftools filter -O z -o pram6_filtered.vcf.gz -s LOWQUAL -i'%QUAL>20' pram6.vari
 tabix -p vcf pram6_filtered.vcf.gz
 ```
 
-## Isolate "Pram7"
+## Isolate *Pram7*
 ### Execute in screen pram7: started 10302017
 ```
 screen -S pram7
@@ -250,20 +298,30 @@ screen -S pram7
 ## Results
 
 31863368 reads; of these:
-  31863368 (100.00%) were paired; of these:
-    6668073 (20.93%) aligned concordantly 0 times
-    16576532 (52.02%) aligned concordantly exactly 1 time
-    8618763 (27.05%) aligned concordantly >1 times
-    ----
-    6668073 pairs aligned concordantly 0 times; of these:
-      177150 (2.66%) aligned discordantly 1 time
-    ----
-    6490923 pairs aligned 0 times concordantly or discordantly; of these:
-      12981846 mates make up the pairs; of these:
-        11365155 (87.55%) aligned 0 times
-        734554 (5.66%) aligned exactly 1 time
-        882137 (6.80%) aligned >1 times
-82.17% overall alignment rate
+
+31863368 (100.00%) were paired; of these:
+
+6668073 (20.93%) aligned concordantly 0 times
+
+16576532 (52.02%) aligned concordantly exactly 1 time
+
+8618763 (27.05%) aligned concordantly >1 times
+
+6668073 pairs aligned concordantly 0 times; of these:
+
+177150 (2.66%) aligned discordantly 1 time
+
+6490923 pairs aligned 0 times concordantly or discordantly; of these:
+
+12981846 mates make up the pairs; of these:
+
+11365155 (87.55%) aligned 0 times
+
+734554 (5.66%) aligned exactly 1 time
+
+882137 (6.80%) aligned >1 times
+
+*82.17% overall alignment rate*
 
 ## Sam to bam
 ```
@@ -280,7 +338,7 @@ bcftools filter -O z -o pram7_filtered.vcf.gz -s LOWQUAL -i'%QUAL>20' pram7.vari
 tabix -p vcf pram7_filtered.vcf.gz
 ```
 
-## Isolate "107-72"
+## Isolate *107-72*
 ### Execute in screen 107_72: Started 102717 10:50am
 ```
 screen -S 107_72
@@ -290,20 +348,30 @@ screen -S 107_72
 ## Results
 
 37171338 reads; of these:
-  37171338 (100.00%) were paired; of these:
-    8228708 (22.14%) aligned concordantly 0 times
-    18456291 (49.65%) aligned concordantly exactly 1 time
-    10486339 (28.21%) aligned concordantly >1 times
-    ----
-    8228708 pairs aligned concordantly 0 times; of these:
-      3230035 (39.25%) aligned discordantly 1 time
-    ----
-    4998673 pairs aligned 0 times concordantly or discordantly; of these:
-      9997346 mates make up the pairs; of these:
-        4246362 (42.47%) aligned 0 times
-        1075193 (10.75%) aligned exactly 1 time
-        4675791 (46.77%) aligned >1 times
-94.29% overall alignment rate
+
+37171338 (100.00%) were paired; of these:
+  
+8228708 (22.14%) aligned concordantly 0 times
+
+18456291 (49.65%) aligned concordantly exactly 1 time
+
+10486339 (28.21%) aligned concordantly >1 times
+
+8228708 pairs aligned concordantly 0 times; of these:
+
+3230035 (39.25%) aligned discordantly 1 time
+
+4998673 pairs aligned 0 times concordantly or discordantly; of these:
+
+9997346 mates make up the pairs; of these:
+
+4246362 (42.47%) aligned 0 times
+
+1075193 (10.75%) aligned exactly 1 time
+
+4675791 (46.77%) aligned >1 times
+
+*94.29% overall alignment rate*
 
 ## Sam to Bam
 ```
@@ -359,20 +427,30 @@ tabix -p vcf 107_89_filtered.vcf.gz
 ## Results
 
 44378056 reads; of these:
-  44378056 (100.00%) were paired; of these:
-    12363618 (27.86%) aligned concordantly 0 times
-    20628876 (46.48%) aligned concordantly exactly 1 time
-    11385562 (25.66%) aligned concordantly >1 times
-    ----
-    12363618 pairs aligned concordantly 0 times; of these:
-      4927091 (39.85%) aligned discordantly 1 time
-    ----
-    7436527 pairs aligned 0 times concordantly or discordantly; of these:
-      14873054 mates make up the pairs; of these:
-        5945520 (39.98%) aligned 0 times
-        1736934 (11.68%) aligned exactly 1 time
-        7190600 (48.35%) aligned >1 times
-93.30% overall alignment rate
+  
+44378056 (100.00%) were paired; of these:
+
+12363618 (27.86%) aligned concordantly 0 times
+
+20628876 (46.48%) aligned concordantly exactly 1 time
+
+11385562 (25.66%) aligned concordantly >1 times
+
+12363618 pairs aligned concordantly 0 times; of these:
+
+4927091 (39.85%) aligned discordantly 1 time
+
+7436527 pairs aligned 0 times concordantly or discordantly; of these:
+
+14873054 mates make up the pairs; of these:
+
+5945520 (39.98%) aligned 0 times
+
+1736934 (11.68%) aligned exactly 1 time
+
+7190600 (48.35%) aligned >1 times
+
+*93.30% overall alignment rate*
 
 ## Samtools > bcftools > variants.vcf
 ```
@@ -395,20 +473,30 @@ tabix -p vcf 110_22_filtered.vcf.gz
 ## Results 
 
 24691096 reads; of these:
-  24691096 (100.00%) were paired; of these:
-    6909193 (27.98%) aligned concordantly 0 times
-    11463418 (46.43%) aligned concordantly exactly 1 time
-    6318485 (25.59%) aligned concordantly >1 times
-    ----
-    6909193 pairs aligned concordantly 0 times; of these:
-      2950970 (42.71%) aligned discordantly 1 time
-    ----
-    3958223 pairs aligned 0 times concordantly or discordantly; of these:
-      7916446 mates make up the pairs; of these:
-        2643462 (33.39%) aligned 0 times
-        966246 (12.21%) aligned exactly 1 time
-        4306738 (54.40%) aligned >1 times
-94.65% overall alignment rate
+  
+24691096 (100.00%) were paired; of these:
+
+6909193 (27.98%) aligned concordantly 0 times
+
+11463418 (46.43%) aligned concordantly exactly 1 time
+
+6318485 (25.59%) aligned concordantly >1 times
+
+6909193 pairs aligned concordantly 0 times; of these:
+
+2950970 (42.71%) aligned discordantly 1 time
+
+3958223 pairs aligned 0 times concordantly or discordantly; of these:
+
+7916446 mates make up the pairs; of these:
+
+2643462 (33.39%) aligned 0 times
+
+966246 (12.21%) aligned exactly 1 time
+
+4306738 (54.40%) aligned >1 times
+
+*94.65% overall alignment rate*
 
 ## Samtools to create .bam 
 ```
