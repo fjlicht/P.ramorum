@@ -18,7 +18,7 @@ bowtie2-build -f /Users/Franz/Dropbox/P_ramorum/GenomeSeqs/Ref/bowtie2/ramorum1.
 ### Download 'Bless' corrected reads 1 and 2 for each isolate
 
 ```
-scp *.fastq franzlichtner@129.82.36.76:/data/lichtner/pram/
+scp *.fastq franzlichtner@XXX.XX.XX.XX:/data/lichtner/pram/
 ```
 
 ## Start with first isolate *Pram1*
